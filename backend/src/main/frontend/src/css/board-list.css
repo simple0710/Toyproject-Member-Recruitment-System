@@ -1,0 +1,122 @@
+/* board */
+td {
+  display: block;
+}
+
+.board_list_div {
+  /* board_list의 width + margin + border */
+  width: 100%;
+  min-width: 320px;
+  max-width: 1260px;
+  margin: auto;
+  text-align: center;
+}
+
+.board_list {
+  text-align: left;
+  display: inline-block;
+  padding: 20px 25px;
+  margin: 5px;
+  width: 250px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+
+.board_list:hover {
+  background-color: #6daee7;
+  cursor: pointer;
+}
+
+.board_list_title {
+  text-align: center;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.board_list_id {
+  text-align: right;
+}
+
+/* 페이징 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul.pagination li {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+ul.pagination li:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+ul.pagination li:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+ul.pagination li a {
+  text-decoration: none;
+  color: #337ab7;
+  font-size: 16px;
+}
+
+ul.pagination li.active a {
+  color: white;
+}
+
+ul.pagination li.active {
+  background-color: #337ab7;
+}
+
+ul.pagination li a:hover,
+ul.pagination li a.active {
+  color: blue;
+}
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: #337ab7;
+}
+
+/* 검색창 */
+#main_search {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#main_search > input[type="text"] {
+  height: 40px;
+  width: 250px;
+  border: 0;
+  border-bottom: 1px solid black;
+  margin-right: 5px;
+  text-align: center;
+}
+
+#main_search > input[type="image"] {
+  border: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-left: 5px;
+}

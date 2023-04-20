@@ -1,0 +1,95 @@
+.detail_board {
+  margin: auto;
+  display: block;
+  font-size: 18px;
+  max-width: 600px;
+}
+.detail_board > table {
+  border-radius: 1%;
+  border: 1px solid black;
+}
+.detail_board > table > tr {
+  display: block;
+}
+.detail_board > table > tr > td {
+  margin: 10px 0;
+  padding: 10px 50px;
+}
+
+.detail_board > table > tr:nth-child(2) > td {
+  display: inline-block;
+  width: 170px;
+}
+
+.detail_board > table > .content {
+  align-content: center;
+  padding: 20px;
+}
+
+.detail_board > table > .content > td {
+  border: 1px solid black;
+  padding: 20px;
+  min-height: 300px;
+  border-radius: 1%;
+}
+
+.title {
+  text-align: center !important;
+  padding: 30px;
+  border-bottom: 1px solid #e2e2e2;
+  font-size: 30px;
+}
+
+button {
+  float: right;
+  margin-top: 1px;
+  margin-right: 1px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10%;
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}
+
+/* 댓글 폼*/
+.answer_form {
+  padding: 10px;
+  display: block;
+}
+
+.answer_content {
+  width: 99%;
+  align-items: center;
+  resize: none;
+  height: 80px;
+  font-size: 16px;
+  padding: 10px 0 0 5px;
+}
+
+.answer_form > input[type="submit"] {
+  float: right;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10%;
+  width: 30px;
+  cursor: pointer;
+}
+
+.answer_list {
+  display: block;
+  border-top: 1px solid rgb(178, 178, 178);
+  margin-top: 20px;
+  padding: 5px;
+}
+
+.answer_list_items {
+  border: 1px solid #777777;
+  margin: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.answer_list_items {
+  vertical-align: middle;
+}

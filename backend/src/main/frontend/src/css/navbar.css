@@ -1,0 +1,28 @@
+.navbar_header {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  float: left;
+  margin-left: 70px;
+  font-size: 40px;
+}
+a {
+  color: black;
+}
+.navbar_category {
+  float: right;
+}
+
+#navbar_main_category {
+  list-style: none;
+  margin-right: 50px;
+}
+
+#navbar_main_category > li {
+  float: left;
+  margin: 5px;
+}

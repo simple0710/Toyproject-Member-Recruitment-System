@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.78b9910c.css",
+    "main.js": "/static/js/main.bf53bd1d.js",
+    "static/media/pngwing.com.png": "/static/media/pngwing.com.5eafc41b30c9d933191d.png",
+    "index.html": "/index.html",
+    "main.78b9910c.css.map": "/static/css/main.78b9910c.css.map",
+    "main.bf53bd1d.js.map": "/static/js/main.bf53bd1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.78b9910c.css",
+    "static/js/main.bf53bd1d.js"
+  ]
+}

@@ -1,0 +1,78 @@
+/* 기본 폼 양식 */
+.default_form {
+  margin: auto;
+  max-width: 600px;
+  border: 1px solid black;
+  border-radius: 1%;
+  font-size: 16px;
+  text-align: center;
+}
+
+.default_form > form > ul > li:nth-child(n + 2) {
+  width: 240px;
+}
+
+.default_form > form > ul > li {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.default_form > form > ul > .default_form_title > input {
+  text-align: center;
+  font-size: 18px;
+  margin-left: 20px;
+  height: 30px;
+  width: 85%;
+}
+
+.default_form > form > ul > li > select,
+input[type="date"] {
+  height: 30px;
+  width: 150px;
+  float: right;
+  text-align: center;
+}
+
+/* content 작성칸 크기 */
+.create_board {
+  padding: 20px;
+  width: 80%;
+  height: 400px;
+  margin: auto;
+  margin-bottom: 20px;
+  resize: none;
+  display: block;
+  border-radius: 1%;
+  font-size: 15px;
+}
+
+.default_form_field {
+  text-align: center;
+  float: left;
+  margin-right: 20px;
+}
+
+.default_form_field > label {
+  vertical-align: middle;
+}
+
+.default_form_title {
+  font-size: 18px;
+}
+
+form > .submit {
+  display: block;
+  font-size: 16px;
+  width: 100px;
+  height: 30px;
+  margin: auto;
+  background-color: white;
+  border: 1px solid black;
+  border-bottom: 0;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+form > .submit:hover {
+  cursor: pointer;
+}

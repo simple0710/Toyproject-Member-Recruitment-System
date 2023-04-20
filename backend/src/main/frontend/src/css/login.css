@@ -1,0 +1,31 @@
+/* 로그인 창 크기 */
+.login_form {
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  border: 1px solid black;
+  border-radius: 1.5%;
+}
+
+/* 입력 칸 */
+.login_form > form > input {
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+}
+
+/* 로그인 버튼 */
+.login_btn {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+/* 아이디, 비밀번호, 회원 가입 */
+.login_bottom {
+  margin-top: 20px;
+}
+.login_bottom > a {
+  font-size: 14px;
+}
