@@ -1,0 +1,18 @@
+form > .login_join_table {
+  border: 1px solid black;
+  min-width: 240px;
+  margin: 0 auto;
+  padding: 10px 30px;
+  border-radius: 3%;
+}
+
+form > div {
+  /* margin: 0 auto; */
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+form > div > input[type="submit"] {
+  min-width: 240px;
+}

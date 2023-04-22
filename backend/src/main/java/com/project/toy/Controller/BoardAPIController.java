@@ -1,26 +1,26 @@
 package com.project.toy.Controller;
 
 import com.project.toy.BoardDto.BoardDto;
+import com.project.toy.BoardDto.UserDto;
 import com.project.toy.Entity.BoardEntity;
+import com.project.toy.Entity.UserEntity;
 import com.project.toy.Service.BoardService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import com.project.toy.Service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/board")
 public class BoardAPIController {
-    private BoardDto boardDto;
 
-    @Autowired
-    private BoardService boardService;
+    private final BoardService boardService;
+
+    private final UserService userService;
 
     // 리스트 시간 순(내림차순)으로 전부 불러오기
     @GetMapping("/list")
@@ -33,7 +33,6 @@ public class BoardAPIController {
     @GetMapping("/list/search")
     public List<BoardEntity> getSearchBoardList(BoardDto boardDto) {
         System.out.println("검색 불러오기");
-        System.out.println(boardDto);
         return this.boardService.searchBoard(boardDto.getTitle());
     }
 
@@ -42,6 +41,7 @@ public class BoardAPIController {
     public void boardCreate(BoardDto boardDto) {
         this.boardService.createBoard(boardDto.getTitle(), boardDto.getName(), boardDto.getSkillStack(), boardDto.getWorkField(), boardDto.getMaxPeople(), boardDto.getEndDate(), boardDto.getContent(), boardDto.getPostEndDate());
     }
+
 
     // 글 상세보기
     @GetMapping("/detail/{id}")

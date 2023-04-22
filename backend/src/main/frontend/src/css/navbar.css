@@ -26,3 +26,9 @@ a {
   float: left;
   margin: 5px;
 }
+
+.logout {
+  font-size: 1px;
+  width: 50px;
+  margin: 0 5px;
+}

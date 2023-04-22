@@ -1,5 +1,6 @@
 package com.project.toy.Reposiotry;
 
+import com.project.toy.Entity.AnswerEntity;
 import com.project.toy.Entity.BoardEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,7 +12,8 @@ import java.util.List;
 
 @Repository
 public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
-    List<BoardEntity> findAll();
+    List<BoardEntity> findAll()
+            ;
     Page<BoardEntity> findAll(Pageable pageable);
     List<BoardEntity> findByTitleContaining(String title, Sort createDate);
 

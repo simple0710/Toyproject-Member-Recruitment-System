@@ -2,6 +2,7 @@ package com.project.toy.Service;
 
 import com.project.toy.Entity.AnswerEntity;
 import com.project.toy.Entity.BoardEntity;
+import com.project.toy.Entity.UserEntity;
 import com.project.toy.Reposiotry.AnswerRepository;
 import com.project.toy.Reposiotry.BoardRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service

@@ -18,9 +18,12 @@ public class AnswerEntity {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @Column(name = "create_date")
     private LocalDateTime createDate;
 
     @ManyToOne
     private BoardEntity board;
 
+    @ManyToOne
+    private UserEntity author;
 }

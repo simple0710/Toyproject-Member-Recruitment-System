@@ -89,7 +89,6 @@ function UpdateForm() {
     getDate();
     // 글 내용 불러오기
     axios.get(`/api/board/detail/${id}`).then((res) => {
-      console.log(res);
       setTitle(res.data.title);
       setSkillStack(res.data.skillStack);
       setWorkField(res.data.workField);

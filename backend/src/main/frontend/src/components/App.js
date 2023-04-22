@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "../css/App.css";
 import Footer from "./Footer";
 import Navbar from "./NavBar";
@@ -12,13 +12,13 @@ import UpdateForm from "./UpdateForm";
 import JoinMemberForm from "./JoinMemberForm";
 
 function App() {
-  const [detailBoard, setDetailBoard] = useState("");
+  const navigate = useNavigate();
 
-  // const pageChangeHandler = (value) => {
-  //   setPage(value);
-  // };
-
-  useEffect(() => {}, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("token") === null) {
+  //     navigate("/login");
+  //   }
+  // }, []);
   return (
     <>
       {/* 네비게이션 */}
@@ -34,11 +34,7 @@ function App() {
         <Route path="/create" exact element={<CreateForm />} />
 
         {/* 글 상세 페이지 */}
-        <Route
-          path="/detail/:id"
-          exact
-          element={<DetailPage exact detailBoard={detailBoard} />}
-        />
+        <Route path="/detail/:id" exact element={<DetailPage exact />} />
 
         {/* 글 수정 페이지 */}
         <Route path="/update/:id" exact element={<UpdateForm />} />

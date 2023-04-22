@@ -3,15 +3,19 @@ import Pagination from "react-js-pagination";
 import axios from "axios";
 import Magnifier from "../img/pngwing.com.png";
 import "../css/board-list.css";
+import { useNavigate } from "react-router-dom";
 
 function BoardList() {
+  const navigate = useNavigate();
   const [totalList, setTotalList] = useState([]);
   const [list, setList] = useState([]);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
   const [fixSearch, setFixSearch] = useState("");
   const [search, setSearch] = useState("");
-  const [answerCntList, setAnswerCntList] = useState("");
+  const [answerCntList, setAnswerCntList] = useState([]);
+  const itemsCnt = 20;
+
   /** 검색한 경우 fixSearch 값 변경*/
   const keyWordChange = (e) => {
     e.preventDefault();
@@ -28,16 +32,22 @@ function BoardList() {
    */
   const pageChangeHandler = async (page) => {
     setPage(page);
-    setList(totalList.slice((page - 1) * 20, page * 20));
+    setList(totalList.slice((page - 1) * itemsCnt, page * itemsCnt));
     window.scrollTo(0, 0);
   };
-  /** 초기 상태 */
+
+  /** 1. 글의 총 개수
+   *
+   * 2. 맨 앞의 20개의 데이터를 가져온다.
+   *
+   * 3. count 변경
+   */
   const getList = async () => {
     await axios
       .get("/api/board/list")
       .then((res) => {
         setTotalList(res.data);
-        setList(res.data.slice(0, 20));
+        setList(res.data.slice(0, itemsCnt));
         setCount(res.data.length);
       })
       .catch((err) => {
@@ -51,18 +61,20 @@ function BoardList() {
       .get("/api/board/list/search", { params: { title: keyword } })
       .then((res) => {
         setTotalList(res.data);
-        setList(res.data.slice(0, 20));
+        setList(res.data.slice(0, itemsCnt));
         setCount(res.data.length);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
   useEffect(() => {
     setPage(1);
     // 검색한 내용이 있는 경우
     if (fixSearch) {
       searchList(fixSearch);
+      console.log(answerCntList);
     }
     // 검색한 내용이 없는 경우
     else {
@@ -92,14 +104,15 @@ function BoardList() {
                   class="board_list"
                   onClick={(e) => {
                     axios.get(`/api/board/detail/${list[i].id}`).then((res) => {
-                      window.location.href = `/detail/${list[i].id}`;
+                      // window.location.href = `/detail/${list[i].id}`;
+                      navigate(`/detail/${list[i].id}`);
                     });
                   }}
                 >
                   <td class="board_list_title">{list[i].title}</td>
                   <td class="board_list_id">{list[i].id}</td>
                   <td class="board_list_skillStack">
-                    스택 : {list[i].skillStack}
+                    사용 언어 : {list[i].skillStack}
                   </td>
                   <td class="board_list_workField">
                     분야 : {list[i].workField}
@@ -120,7 +133,7 @@ function BoardList() {
         <Pagination
           className="pagination"
           activePage={page}
-          itemsCountPerPage={20}
+          itemsCountPerPage={itemsCnt}
           totalItemsCount={count}
           pageRangeDisplayed={5}
           prevPageText={"<"}

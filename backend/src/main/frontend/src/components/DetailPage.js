@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "../css/detail-page.css";
 import axios from "axios";
 
@@ -15,14 +15,19 @@ function DetailPage() {
   const [content, setContent] = useState("");
   const [answerContent, setAnswerContent] = useState("");
   const [answerList, setAnswerList] = useState([]);
+  const navigate = useNavigate();
 
+  /** 댓글 저장 */
   const answerHandler = (e) => {
+    e.preventDefault();
     const params = new URLSearchParams();
     params.append("content", answerContent);
     axios.post(`/api/answer/create/${id}`, params);
-    window.location.href = `/detail/${id}`;
+    setAnswerContent("");
+    getAnswerList();
   };
 
+  /** 댓글 불러오기 */
   const getAnswerList = (e) => {
     axios
       .get(`/api/answer/detail/${id}`)
@@ -46,7 +51,6 @@ function DetailPage() {
       setEndDate(res.data.endDate);
       setContent(res.data.content);
     });
-    // 댓글 불러오기
     getAnswerList();
   }, []);
   return (
@@ -91,7 +95,7 @@ function DetailPage() {
                   .get(`/api/board/delete?id=${id}`)
                   .then((res) => {
                     alert("삭제 완료");
-                    window.location.href = "/board/list";
+                    navigate("/board/list");
                   })
                   .catch((err) => {
                     console.log(err);
@@ -100,7 +104,7 @@ function DetailPage() {
             >
               삭제
             </button>
-            <button onClick={(e) => (window.location.href = `/update/${id}`)}>
+            <button onClick={(e) => navigate(`/update/${id}`)}>
               <Link to={`/update/${id}`} style={{ textDecoration: "none" }}>
                 수정
               </Link>
@@ -125,10 +129,7 @@ function DetailPage() {
             {answerList.map(function (lists, idx) {
               return (
                 <>
-                  <div class="answer_list_items">
-                    {answerList[idx].content}
-                    <button>삭제</button>
-                  </div>
+                  <div class="answer_list_items">{answerList[idx].content}</div>
                 </>
               );
             })}

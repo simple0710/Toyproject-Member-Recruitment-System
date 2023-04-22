@@ -8,7 +8,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name="SiteUser")
+@Table(name="site_user")
 @Data
 public class UserEntity {
     @Id
@@ -16,10 +16,7 @@ public class UserEntity {
     private Long id;
 
     @Column(unique = true)
-    private String username;
-
-    @Column(unique = true)
-    private String nickname;
+    private String name;
 
     private String password;
 

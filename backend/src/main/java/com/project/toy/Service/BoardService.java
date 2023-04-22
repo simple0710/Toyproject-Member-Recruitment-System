@@ -2,6 +2,7 @@ package com.project.toy.Service;
 
 
 import com.project.toy.Entity.BoardEntity;
+import com.project.toy.Entity.UserEntity;
 import com.project.toy.Reposiotry.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -45,6 +46,7 @@ public class BoardService {
         return this.boardRepository.findAll(pageable);
     }
 
+    // 생성
     public void createBoard(String title, String name, String skillStack, String workField, String maxPeople, String endDate, String content, LocalDate postEndDate) {
         BoardEntity p = new BoardEntity();
         System.out.println(skillStack);
@@ -75,7 +77,6 @@ public class BoardService {
     // 삭제
     public void delete(Integer id) {
         boardRepository.deleteById(id);
-        System.out.println("삭제 완료");
     }
 
 

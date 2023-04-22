@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/board-create.css";
 
@@ -10,6 +11,7 @@ function CreateForm() {
   const [endDate, setEndDate] = useState("1개월");
   const [content, setContent] = useState("");
   const [postEndDate, setPostEndDate] = useState("");
+  const navigate = useNavigate();
 
   /** 마감일 최소값 구하기 */
   const getDate = (e) => {
@@ -57,15 +59,15 @@ function CreateForm() {
   const createSubmitHandler = (e) => {
     const params = new URLSearchParams();
     params.append("title", title);
-    // params.append("name", name);
     params.append("skillStack", skillStack);
     params.append("workField", workField);
     params.append("maxPeople", maxPeople);
     params.append("endDate", endDate);
     params.append("content", content);
     params.append("postEndDate", postEndDate);
-    window.location.href = "/board/list";
     axios.post(`/api/board/create`, params);
+    e.preventDefault();
+    navigate("/board/list");
     alert("글 작성 완료!");
   };
 

@@ -49,4 +49,7 @@ public class BoardEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "board", cascade = CascadeType.REMOVE)
     private List<AnswerEntity> answerList;
+
+    @ManyToOne
+    private UserEntity author;
 }

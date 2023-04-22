@@ -1,8 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../css/navbar.css";
 
 function NavBar() {
+  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setIsLoggedIn(window.localStorage.getItem("name"));
+  });
   return (
     <>
       <div class="navbar_header">
@@ -32,9 +38,25 @@ function NavBar() {
               </Link>
             </li>
             <li>
-              <Link to="/login" style={{ textDecoration: "none" }}>
-                로그인
-              </Link>
+              {isLoggedIn === null ? (
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                  로그인
+                </Link>
+              ) : (
+                <>
+                  {isLoggedIn}
+                  <button
+                    class="logout"
+                    onClick={(e) => {
+                      window.localStorage.removeItem("name");
+                      window.localStorage.removeItem("token");
+                      navigate("/");
+                    }}
+                  >
+                    로그아웃
+                  </button>
+                </>
+              )}
             </li>
           </ul>
         </nav>
