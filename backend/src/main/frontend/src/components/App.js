@@ -13,12 +13,6 @@ import JoinMemberForm from "./JoinMemberForm";
 
 function App() {
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (localStorage.getItem("token") === null) {
-  //     navigate("/login");
-  //   }
-  // }, []);
   return (
     <>
       {/* 네비게이션 */}
