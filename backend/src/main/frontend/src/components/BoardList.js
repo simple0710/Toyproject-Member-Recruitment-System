@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Pagination from "react-js-pagination";
 import axios from "axios";
-import Magnifier from "../img/pngwing.com.png";
+import Magnifier from "../img/Magnifier.png";
 import "../css/board-list.css";
 import { useNavigate } from "react-router-dom";
 
